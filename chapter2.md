@@ -40,16 +40,35 @@ Little O notation is a way to describe how fast a function grows compared to ano
 
 f(n) ∈ o(g(n)), it means that f(n) grows much slower than g(n).
 
+| Feature       | Little-o (o(g(n))) | Big-O (O(g(n))) |
+| ------------- | ------------------ | ---------------- |
+| Upper bound    | Not asymptotically tight | Asymptotically tight |
+| Meaning        | Grows slower than g(n) | Bounded by constant multiple of g(n) |
+| Significance  | Eventually insignificant compared to g(n) | Eventually dominated by g(n) |
+
+
 ### Ex: 2.8
 
-For example, if we have f(n)=n<sup>2</sup> and g(n)=n<sup>3</sup>, then
-f(n) is in o(g(n)) because n<sup>2</sup> grows much slower than. But if we have f(n)=n<sup>3</sup>, then it's not in o(g(n)) because it grows at the same rate as g(n).
+If f(n)=n<sup>2</sup> and g(n)=n<sup>3</sup>, then
+f(n) is in o(g(n)) because n<sup>2</sup> grows much slower than. 
 
-In simple terms, if f(n) is in o(g(n)), it means that f(n) is "smaller" than g(n) in terms of how quickly it grows as n gets really large.
+But if f(n)=n<sup>3</sup>, then it's not in o(g(n)) because it grows at the same rate as g(n).
+
+Key Points: 
+
+ - o(g(n)) is like saying "much smaller than" in terms of growth rate.
+
+ - It's about comparing how functions grow in the long run, not just at the beginning.
 
 ### Little Omega Notation
 
-Little Omega notation (ω(g(n))) indicates that a function grows faster than another function, without requiring a tight bound, using the symbol ω. It differs from other notations like Big O, Big Omega, and Theta by focusing on lower bounds and not requiring tightness or specific constants.
+Little Omega notation (ω(g(n))) represents a loose lower bound that is not asymptotically tight. In simpler terms, it says that a function f(n) grows at least as fast as another function g(n) as n gets infinitely large. However, it doesn't specify exactly how much faster.
+
+| Feature       | Little omega (ω(g(n))) | Big omega (Ω(g(n))) |
+| ------------- | ---------------------- | -------------------- |
+| Lower bound    | Not asymptotically tight | Asymptotically tight |
+| Meaning        | Grows at least as fast as g(n) | Bounded from below by constant multiple of g(n) |
+| Significance  | Eventually non-negligible compared to g(n) | Eventually dominates g(n) from below |
 
 
 ### Ex: 2.9
@@ -57,7 +76,11 @@ Little Omega notation (ω(g(n))) indicates that a function grows faster than ano
 Show that 50n<sup>3</sup> / 100 ≠ ω(n<sup>3</sup>).
 
 Given: 0 ≤ cg(n) < h(n) , for any constant c > 0
-Plug in n<sup>3</sup>: 0 ≤ cn<sup>3</sup> < 50n<sup>3</sup>/ 100
+
+Plug in n<sup>3</sup>: 
+
+0 ≤ cn<sup>3</sup> < 50n<sup>3</sup>/ 100
+
 Then divide by n<sup>3</sup>: 
 
 0 ≤ c < 50/100
