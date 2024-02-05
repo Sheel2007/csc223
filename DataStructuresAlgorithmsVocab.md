@@ -59,3 +59,7 @@ all_names = names + more_names
 [W3 Schools](https://www.w3schools.com/python/gloss_python_join_lists.asp)
 
 [FreeCodeCamp](https://www.freecodecamp.org/news/how-linked-lists-work/)
+
+[TutorialsPoint](https://github.com/Sheel2007/csc223)
+
+[Wikipedia](https://en.wikipedia.org/wiki/Big_O_notation#Little-o_notation)
