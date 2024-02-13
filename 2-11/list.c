@@ -35,3 +35,17 @@ void insert_in_front(Node** list, Node** newnode)
     (*newnode)->next = *list;
     *list = *newnode;
 }
+
+void insert_at_end(Node** list, Node** newnode) {
+    if (*list == NULL) {
+        *list = *newnode; // If the list is empty, make the new node the head
+    } else {
+        Node* current = *list;
+        while (current->next != NULL) {
+            current = current->next; // Traverse to the end of the list
+        }
+        current->next = *newnode; // Insert the new node at the end
+    }
+    (*newnode)->next = NULL; // Ensure the new node points to NULL as it's the last node
+}
+
