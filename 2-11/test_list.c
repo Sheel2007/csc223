@@ -40,11 +40,14 @@ int main()
 
         // Test finding an existing item
         Node* result1 = find_in_list(n1, 2);
+        // Check if the node containing the target value (2) is found
         ASSERT_EQ(result1->val, 2);
+        // Check if the next node's value after the found node is correct (3)
         ASSERT_EQ(result1->next->val, 3);
 
         // Test finding a non-existent item
         Node* result2 = find_in_list(n1, 5);
+        // Check if NULL is returned when the target value (5) is not found
         ASSERT_EQ(result2, NULL);
     }
 
@@ -66,8 +69,10 @@ int main()
             current = current->next;
         }
         
-        ASSERT_EQ(current->val, 4); // Check the value of the last node
-        ASSERT_EQ(current->next, NULL); // Ensure the last node points to NULL
+        // Check the value of the last node
+        ASSERT_EQ(current->val, 4);
+        // Ensure the last node points to NULL
+        ASSERT_EQ(current->next, NULL);
     }
 
     END_TESTING();

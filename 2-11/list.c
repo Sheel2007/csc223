@@ -17,12 +17,16 @@ Node* make_node(int data)
 
 Node* find_in_list(Node* list, int target)
 {
+    // Start traversal from the head of the list
     Node* current = list;
 
+    // Traverse the list until the end is reached
     while (current != NULL) {
+        // Check if the current node's value matches the target value
         if (current->val == target) {
             return current; // Found the target, return the node
         }
+        // Move to the next node in the list
         current = current->next;
     }
 
@@ -37,15 +41,19 @@ void insert_in_front(Node** list, Node** newnode)
 }
 
 void insert_at_end(Node** list, Node** newnode) {
+    // If the list is empty, make the new node the head of the list
     if (*list == NULL) {
-        *list = *newnode; // If the list is empty, make the new node the head
+        *list = *newnode;
     } else {
+        // Traverse the list to find the last node
         Node* current = *list;
         while (current->next != NULL) {
-            current = current->next; // Traverse to the end of the list
+            current = current->next;
         }
-        current->next = *newnode; // Insert the new node at the end
+        // Insert the new node at the end of the list
+        current->next = *newnode;
     }
-    (*newnode)->next = NULL; // Ensure the new node points to NULL as it's the last node
+    // Ensure the new node points to NULL as it's the last node
+    (*newnode)->next = NULL;
 }
 
