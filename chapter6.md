@@ -245,3 +245,97 @@
   2. Set TEMP to point to the node following PTR.
   3. Update the NEXT field of PTR to point to the node following TEMP.
   4. Free the memory occupied by TEMP.
+
+# Circular Linked Lists
+
+- **Definition:**
+  - A circular linked list has the last node pointing to the first node, forming a loop.
+  - Types: Circular singly linked list and circular doubly linked list.
+
+- **Traversal:**
+  - Can begin at any node and traverse in any direction until returning to the starting node.
+  - No beginning or ending points in a circular linked list.
+
+- **Application Example:**
+  - Used in operating systems for task maintenance.
+  - Example: Web browser's Back and Forward buttons utilize a circular linked list to maintain the sequence of visited web pages.
+  - Traversing the circular linked list allows revisiting pages using Back and Forward buttons.
+
+- **Memory Representation:**
+  - No NULL values in the NEXT part of any nodes.
+  - Each list maintains a separate START pointer for clarity in memory representation.
+  - Traversal continues until finding the node with the address of the first node, denoting the end of the circular linked list.
+
+- **Example:**
+  - Fig. 6.27 illustrates a circular linked list storing characters forming the word "HELLO".
+  - Fig. 6.28 demonstrates two separate circular linked lists in memory, each with its own START pointer.
+  - Roll numbers of students opting for Biology and Computer Science are listed separately in the example.
+
+## Inserting a New Node in a Circular Linked List
+
+- **Overview:**
+  - Adding a new node into an already existing circular linked list.
+  - Two cases of insertion:
+    1. Inserting at the beginning
+    2. Inserting at the end
+
+### Case 1: Inserting at the Beginning
+
+- **Description:**
+  - Adding a new node as the first node of the circular linked list.
+
+- **Steps:**
+  1. Create a new node with the desired data.
+  2. If the list is empty, set START to point to the new node and set the NEXT field of the new node to point to itself.
+  3. If the list is not empty, set the NEXT field of the new node to point to the current first node.
+  4. Update START to point to the new node, making it the first node of the list.
+  5. Update the NEXT field of the last node to point to the new first node.
+
+### Case 2: Inserting at the End
+
+- **Description:**
+  - Adding a new node as the last node of the circular linked list.
+
+- **Steps:**
+  1. Create a new node with the desired data.
+  2. If the list is empty, set START to point to the new node and set the NEXT field of the new node to point to itself.
+  3. If the list is not empty, traverse the list to reach the last node.
+  4. Set the NEXT field of the last node to point to the new node.
+  5. Set the NEXT field of the new node to point to the first node (START).
+
+
+## Deleting a Node from a Circular Linked List
+
+- **Overview:**
+  - Removing a node from an already existing circular linked list.
+  - Two cases of deletion:
+    1. Deleting the first node
+    2. Deleting the last node
+
+### Case 1: Deleting the First Node
+
+- **Description:**
+  - Removing the first node of the circular linked list.
+
+- **Steps:**
+  1. Set PTR to point to START, the first node.
+  2. If PTR is the only node in the list, set START to NULL.
+  3. Traverse the list to reach the last node.
+  4. Set the NEXT field of the last node to point to the node following PTR.
+  5. If PTR is not the only node, update START to point to the node following PTR.
+  6. Free the memory occupied by PTR.
+
+
+### Case 2: Deleting the Last Node
+
+- **Description:**
+  - Removing the last node of the circular linked list.
+
+- **Steps:**
+  1. Set PTR to point to START, the first node.
+  2. Traverse the list to reach the second last node.
+  3. Set TEMP to point to the node following PTR.
+  4. Set the NEXT field of TEMP to point to START, making it the new last node.
+  5. Free the memory occupied by PTR, the previous last node.
+
+
