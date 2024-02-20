@@ -62,6 +62,7 @@ Node* remove_from_list(Node** list, int val) {
     Node *current, *previous;
     previous = *list;
 
+    // If the list is empty, return NULL
     if (previous == NULL) {     
         return NULL;
     }
@@ -75,11 +76,13 @@ Node* remove_from_list(Node** list, int val) {
         return previous;
     }
 
+    // Traverse the list until either the end is reached or the value to be removed is found
     while (current != *list && current->val != val) {
         previous = current;
         current = current->next;
     }
 
+    // If the value to be removed is not found in the list return NULL
     if (current == *list && current->val != val) { // Value not found
         return NULL;
     }
