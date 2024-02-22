@@ -77,6 +77,27 @@ int main()
         RETURNS_STR(print_list, "1 -> 0 -> 2 -> 3 -> 4 -> 6 -> 7", (mylist));
     }
 
+    TEST("Can insert node in order in descending list") {
+        // Confirm works with empty list
+        Node* myclist = NULL;
+
+        Node* n = make_node(4);
+        clist_insert_in_order(&myclist, &n);
+        RETURNS_STR(print_clist, "4", (myclist));
+
+        n = make_node(2);
+        clist_insert_in_order(&myclist, &n);
+        RETURNS_STR(print_clist, "2 -> 4", (myclist));
+
+        n = make_node(3);
+        clist_insert_in_order(&myclist, &n);
+        RETURNS_STR(print_clist, "2 -> 3 -> 4", (myclist));
+
+        n = make_node(5);
+        clist_insert_in_order(&myclist, &n);
+        RETURNS_STR(print_clist, "2 -> 3 -> 4 -> 5", (myclist));
+    }
+
 
     END_TESTING();
 }
