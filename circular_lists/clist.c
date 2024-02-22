@@ -43,6 +43,39 @@ char* print_list(Node* head) {
     return result;
 }
 
+void clist_insert_in_order(Node** list, Node** newnode) {
+    // empty list
+    if (*list == NULL) {
+        (*newnode)->next = *newnode;
+        (*list) = *newnode;
+        return;
+    }
+
+    // beginning insertion
+    if ((*list)->val > (*newnode)->val) {
+        (*newnode)->next = *list;
+        Node* last = *list;
+        while (last->next != *list) {
+            last = last->next;
+        }
+        last->next = *newnode;
+        (*list) = *newnode;
+        return;
+    }
+
+    // otherwise, loop through and insert
+    Node* cur = (*list)->next;
+    Node* prev = *list;
+
+    while (cur != *list && cur->val < (*newnode)->val) {
+        prev = cur;
+        cur = cur->next;
+    }
+    // insert newnode between previous and current (or at end)
+    (*newnode)->next = cur;
+    prev->next = *newnode;
+}
+
 void insert_at_end(Node** list, Node** newnode) {
     // If the list is empty, make the new node the head of the list
     if (*list == NULL) {
