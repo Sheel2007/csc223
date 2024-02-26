@@ -24,19 +24,19 @@ int main()
         last_node->next = mylist;
 
         // Testing the initial state of the circular linked list
-        RETURNS_STR(print_list, "0 -> 2 -> 4 -> 6", (mylist));
+        RETURNS_STR(print_clist, "0 -> 2 -> 4 -> 6", (mylist));
 
         // Storing the pointer to the node to be removed
         Node* node_to_remove = mylist->next->next; // Pointing to node with value 4
 
         // Removing the node with value 4 from the circular linked list
-        Node* removed_node = remove_from_list(&mylist, 4); 
+        Node* removed_node = remove_from_clist(&mylist, 4); 
 
         // Asserting that the removed node is the same as the expected node
         ASSERT_EQ(node_to_remove, removed_node);
 
         // Testing the state of the circular linked list after removal
-        RETURNS_STR(print_list, "0 -> 2 -> 6", (mylist));
+        RETURNS_STR(print_clist, "0 -> 2 -> 6", (mylist));
     }
 
     TEST("Can insert node at specified index in circular linked list") {
@@ -56,25 +56,25 @@ int main()
         last_node->next = mylist;
 
         // Testing the initial state of the circular linked list
-        RETURNS_STR(print_list, "0 -> 2 -> 4 -> 6", (mylist));
+        RETURNS_STR(print_clist, "0 -> 2 -> 4 -> 6", (mylist));
 
         // Inserting a node with value 3 at index 2
-        insert_at_index(&mylist, 3, 2);
+        clist_insert_at_index(&mylist, 3, 2);
 
         // Testing the state of the circular linked list after insertion
-        RETURNS_STR(print_list, "0 -> 2 -> 3 -> 4 -> 6", (mylist));
+        RETURNS_STR(print_clist, "0 -> 2 -> 3 -> 4 -> 6", (mylist));
 
         // Inserting a node with value 1 at index 0
-        insert_at_index(&mylist, 1, 0);
+        clist_insert_at_index(&mylist, 1, 0);
 
         // Testing the state of the circular linked list after insertion
-        RETURNS_STR(print_list, "1 -> 0 -> 2 -> 3 -> 4 -> 6", (mylist));
+        RETURNS_STR(print_clist, "1 -> 0 -> 2 -> 3 -> 4 -> 6", (mylist));
 
         // Inserting a node with value 7 at index 6
-        insert_at_index(&mylist, 7, 6);
+        clist_insert_at_index(&mylist, 7, 6);
 
         // Testing the state of the circular linked list after insertion
-        RETURNS_STR(print_list, "1 -> 0 -> 2 -> 3 -> 4 -> 6 -> 7", (mylist));
+        RETURNS_STR(print_clist, "1 -> 0 -> 2 -> 3 -> 4 -> 6 -> 7", (mylist));
     }
 
     TEST("Can insert node in order in descending list") {

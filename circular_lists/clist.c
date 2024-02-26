@@ -15,7 +15,7 @@ Node* make_node(int data)
     return new;
 }
 
-char* print_list(Node* head) {
+char* print_clist(Node* head) {
     char* result = malloc(1024);
 
     int index = 0;
@@ -91,7 +91,7 @@ void insert_at_end(Node** list, Node** newnode) {
     }
 }
 
-Node* remove_from_list(Node** list, int val) {
+Node* remove_from_clist(Node** list, int val) {
     Node *current, *previous;
     previous = *list;
 
@@ -132,7 +132,7 @@ Node* remove_from_list(Node** list, int val) {
     return current;
 }
 
-void insert_at_index(Node** list, int val, int index) {
+void clist_insert_at_index(Node** list, int val, int index) {
     Node* new_node = make_node(val);
 
     if (*list == NULL) { // If the list is empty, insert the node as the only node
